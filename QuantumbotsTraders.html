@@ -316,17 +316,25 @@
             }, 2000);
         });
 
-        document.getElementById("submitBtn").addEventListener("click", function() {
-            var name = document.getElementById("name").value;
-            var email = document.getElementById("email").value;
-            var age = document.getElementById("age").value;
-            var phone = document.getElementById("phone").value;
-            var country = document.getElementById("country").value;
-            var selectedPlan = document.querySelector('input[name="plan"]:checked').value;
+    document.getElementById("submitBtn").addEventListener("click", function() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var age = document.getElementById("age").value;
+        var phone = document.getElementById("phone").value;
+        var country = document.getElementById("country").value;
+        var selectedPlan = document.querySelector('input[name="plan"]:checked');
 
-            var message = `HI I'M HERE TO PURCHASE THE QUANTUMBOT PROPFIRM ACCOUNT\nName: ${name}\nEmail: ${email}\nAge: ${age}\nPhone number: ${phone}\nCountry: ${country}\nSELECTED PLAN: ${selectedPlan}`;
+        // Check if a plan is selected
+        if (!selectedPlan) {
+            alert("Please select a prop firm plan before submitting.");
+            return;
+        }
 
-            window.location.href = `https://wa.me/+15487615407?text=${encodeURIComponent(message)}`;
+        var message = `HI I'M HERE TO PURCHASE THE QUANTUMBOT PROPFIRM ACCOUNT\nName: ${name}\nEmail: ${email}\nAge: ${age}\nPhone number: ${phone}\nCountry: ${country}\nSELECTED PLAN: ${selectedPlan.value}`;
+
+        window.location.href = `https://wa.me/+15487615407?text=${encodeURIComponent(message)}`;
+    });
+
         });
     </script>
 </body>
