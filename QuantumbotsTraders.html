@@ -286,14 +286,6 @@
                     <input type="radio" name="plan" value="$100,000 - $750">
                     $100,000 - $750
                 </label>
-                <label>
-                    <input type="radio" name="plan" value="$200,000 - $1450">
-                    $200,000 - $1450
-                </label>
-                <label>
-                    <input type="radio" name="plan" value="$500,000 - $2250">
-                    $500,000 - $2250
-                </label>
                 <button class="submit-btn" id="submitBtn">Submit</button>
             </div>
         </div>
@@ -316,25 +308,17 @@
             }, 2000);
         });
 
-    document.getElementById("submitBtn").addEventListener("click", function() {
-        var name = document.getElementById("name").value;
-        var email = document.getElementById("email").value;
-        var age = document.getElementById("age").value;
-        var phone = document.getElementById("phone").value;
-        var country = document.getElementById("country").value;
-        var selectedPlan = document.querySelector('input[name="plan"]:checked');
+        document.getElementById("submitBtn").addEventListener("click", function() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var age = document.getElementById("age").value;
+            var phone = document.getElementById("phone").value;
+            var country = document.getElementById("country").value;
+            var selectedPlan = document.querySelector('input[name="plan"]:checked').value;
 
-        // Check if a plan is selected
-        if (!selectedPlan) {
-            alert("Please select a prop firm plan before submitting.");
-            return;
-        }
+            var message = `HI I'M HERE TO PURCHASE THE QUANTUMBOT PROPFIRM ACCOUNT\nName: ${name}\nEmail: ${email}\nAge: ${age}\nPhone number: ${phone}\nCountry: ${country}\nSELECTED PLAN: ${selectedPlan}`;
 
-        var message = `HI I'M HERE TO PURCHASE THE QUANTUMBOT PROPFIRM ACCOUNT\nName: ${name}\nEmail: ${email}\nAge: ${age}\nPhone number: ${phone}\nCountry: ${country}\nSELECTED PLAN: ${selectedPlan.value}`;
-
-        window.location.href = `https://wa.me/+15487615407?text=${encodeURIComponent(message)}`;
-    });
-
+            window.location.href = `https://wa.me/+15487615407?text=${encodeURIComponent(message)}`;
         });
     </script>
 </body>
